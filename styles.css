@@ -6,28 +6,60 @@ input[type="checkbox"].toggle {
 }
 
 input[type="checkbox"].toggle + label {
+    position: relative;
     display: flex;
     align-items: center;
+    color: #777;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
 }
 
 input[type="checkbox"].toggle + label::before {
     content: "";
     width: 2rem;
     height: .3rem;
-    background-color: #DDD;
+    background-color: #caa6c2;
     border-radius: 1rem;
     margin-right: .25rem;
 }
 
 input[type="checkbox"].toggle + label::after {
-    content: "";
-    width: 2rem;
-    height: .3rem;
-    background-color: #DDD;
-    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content: "\2715";
+    font-size: .5rem;
+    width: .7rem;
+    height: .7rem;
+    left: .2rem;
+    background-color: #7b096c;
+    color: #efe7f2;
+    border-radius: 50%;
     margin-right: .25rem;
 }
 
-input[type="checkbox"].toggle:checked + label {
-    color: red;
+input[type="checkbox"].toggle:focus + label::before {
+    background-color:#a56f99;
+    outline: .5px solid #a56f99;
+}
+
+input[type="checkbox"].toggle:checked + label::after {
+    content: "\2713";
+    left: 1.1rem;
+    background-color: #be0da7;
+}
+
+input[type="checkbox"].toggle:disabled + label {
+    color: #555;
+}
+
+input[type="checkbox"].toggle:disabled + label::before {
+    background-color: #777;
+    
+}
+
+input[type="checkbox"].toggle:disabled + label::after {
+    background-color: #222;
+    color: #efe7f2;
 }
